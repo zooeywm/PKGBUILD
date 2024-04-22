@@ -9,17 +9,17 @@ arch=('x86_64')
 license=('MIT')
 source=("$url/releases/download/v$pkgver/slang-$pkgver-linux-$CARCH.tar.gz")
 sha256sums=('b6dc3227b01aa2a24a0a137b0435bd85a5b5c0912bc7afa7b0e94b5e625b653f')
-depends=(glslang)
+depends=(slang libx11 zlib)
 conflicts=(shader-slang shader-slang-git shader-slang-bin)
 provides=(shader-slang)
 
 package() {
-  mkdir -p $pkgdir/usr/{bin,lib,include/shader-slang,share/{,licenses/}shader-slang}
-  install -Dm 755 bin/linux-x64/release/slangc -t $pkgdir/usr/bin
-  install -Dm 755 bin/linux-x64/release/slangd -t $pkgdir/usr/bin
-  install -Dm 644 bin/linux-x64/release/*.so -t $pkgdir/usr/lib
-  install -Dm 644 *.h -t $pkgdir/usr/include/shader-slang
-  install -Dm 644 prelude/* -t $pkgdir/usr/include/shader-slang/prelude
-  install -Dm 644 docs/* -t $pkgdir/usr/share/shader-slang/docs
-  install -Dm 644 LICENSE -t $pkgdir/usr/share/licenses/shader-slang
+	mkdir -p $pkgdir/usr/{bin,lib,include/shader-slang,share/{,licenses/}shader-slang}
+	install -Dm 755 bin/linux-x64/release/slangc -t $pkgdir/usr/bin
+	install -Dm 755 bin/linux-x64/release/slangd -t $pkgdir/usr/bin
+	install -Dm 644 bin/linux-x64/release/*.so -t $pkgdir/usr/lib
+	install -Dm 644 *.h -t $pkgdir/usr/include/shader-slang
+	install -Dm 644 prelude/* -t $pkgdir/usr/include/shader-slang/prelude
+	install -Dm 644 docs/* -t $pkgdir/usr/share/shader-slang/docs
+	install -Dm 644 LICENSE -t $pkgdir/usr/share/licenses/shader-slang
 }
