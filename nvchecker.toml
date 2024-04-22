@@ -1,0 +1,9 @@
+[__config__]
+oldver = "old_ver.json"
+newver = "new_ver.json"
+
+[satty]
+source = "github"
+github = "shader-slang/slang"
+use_latest_release = true
+prefix = "v"
